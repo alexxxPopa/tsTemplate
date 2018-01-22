@@ -1,21 +1,34 @@
 {
   "name": "lottery",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --config webpack.config.ts",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.17.1",
+    "immutable": "^3.8.2",
+    "moment": "^2.20.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-datetime": "^2.11.1",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^5.0.14",
+    "@types/react-router-dom": "^4.2.3",
     "@types/webpack": "^3.8.3",
     "ts-loader": "^3.2.0",
+    "ts-node": "^4.1.0",
     "typescript": "^2.6.2",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }

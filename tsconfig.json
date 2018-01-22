@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
     "jsx": "react",
+    "lib": [ "es2015", "dom" ],
     "module": "commonjs",
     "noImplicitAny": true,
     "outDir": "./build/",
     "preserveConstEnums": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
     "removeComments": true,
     "target": "ES5"
   },
