@@ -2,13 +2,14 @@
   "name": "lottery",
   "scripts": {
     "build": "webpack --config webpack.config.ts",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node src/server/index.js"
   },
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.17.1",
+    "express": "^4.16.2",
     "immutable": "^3.8.2",
     "moment": "^2.20.1",
     "react": "^16.2.0",

@@ -18,11 +18,6 @@ const config: webpack.Configuration = {
         exclude: /node_modules/
       }
     ]
-  },
-  devServer: {
-    port: 3000,
-    historyApiFallback: true,
-    contentBase: './'
   }
 };
 
