@@ -1,13 +1,16 @@
 {
   "name": "lottery",
   "scripts": {
-    "build": "webpack --config webpack.config.ts",
-    "start": "node src/server/index.js"
+    "start": "after start",
+    "test": "after test --env=jsdom",
+    "build": "after build",
+    "start:prod": "NODE_ENV=production node build/build/server.js"
   },
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@jaredpalmer/after": "^0.5.2",
     "axios": "^0.17.1",
     "express": "^4.16.2",
     "immutable": "^3.8.2",
@@ -15,21 +18,43 @@
     "react": "^16.2.0",
     "react-datetime": "^2.11.1",
     "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux": "^4.0.0-beta.1",
+    "redux-thunk": "^2.2.0",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.5.3",
+    "tslint-react": "^3.4.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
     "@types/react-router-dom": "^4.2.3",
-    "@types/webpack": "^3.8.3",
     "ts-loader": "^3.2.0",
     "ts-node": "^4.1.0",
-    "typescript": "^2.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      "^.+\\.css$": "<rootDir>/node_modules/after.js/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/after.js/config/jest/fileTransform.js",
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/after.js/config/jest/babelTransform.js"
+    },
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.(ts|js)?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ]
   }
 }
