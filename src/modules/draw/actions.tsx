@@ -1,23 +1,47 @@
 import axios from 'axios';
-import { Dispatch } from 'redux';
+import { Dispatch, Action, ActionCreator } from 'redux';
 import {StoreState, Draw } from '../../store';
 import types from './types';
 import { ThunkAction } from 'redux-thunk';
 
 const ROOT_URL = 'http://127.0.0.1:8080'
 
-export const getDraws = () => async (dispatch: Dispatch<StoreState>) => {
-  let URL = ROOT_URL + '/draws'
-  const request = await axios.get(URL)
-  dispatch(getDrawsResponse(request))
+export const getDraws: ActionCreator<ThunkAction<Promise<DrawAction>, StoreState, void>> = () => 
+   async (dispatch: Dispatch<StoreState>):Promise<DrawAction> => {
+    let URL = ROOT_URL + '/draws'
+    try {
+    const response = await axios.get(URL)
+    return dispatch({
+      type: types.GET_DRAWS,
+      payload: response.data
+    })
+  }  catch(e) {
+      //handle catch
+      return dispatch({
+        type: types.GET_DRAWS
+      })
+  }
 }
 
-export const addDraw = (drawStart: number): ThunkAction<Promise<any>, StoreState, null> => async (dispatch: Dispatch<StoreState>) => {
+
+export const addDraw: ActionCreator<ThunkAction<Promise<DrawAction>, StoreState, void>> = 
+  (drawStart: number) => async (dispatch: Dispatch<StoreState>) => {
   let URL = types + '/draws/new'
-  const request = await axios.post(URL, {
+  try{
+  const response = await axios.post(URL, {
     DrawStart: drawStart
   })
-
+  //handle success
+  return dispatch({
+    type: types.GET_DRAWS,
+      payload: response.data
+    })
+  } catch(e) {
+    //handle catch
+    return dispatch({
+      type: types.GET_DRAWS
+      })
+  }
 }
 
 export const selectDraw = (draw: Draw): DrawAction => {
@@ -27,16 +51,18 @@ export const selectDraw = (draw: Draw): DrawAction => {
   }
 }
 
-const getDrawsResponse = (response: any): DrawAction => {
-  return {
-    type: types.GET_DRAWS,
-    payload: response.data
-  }
-}
+
+// const getDrawsResponse = (response: any): DrawAction => {
+//   return {
+//     type: types.GET_DRAWS,
+//     payload: response.data
+//   }
+// }
 
 export interface DrawAction {
   type: string,
-  payload: any
+  payload ?: any,
+  error ?: boolean
 }
 
 

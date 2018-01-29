@@ -3,6 +3,7 @@ import * as Immutable from 'immutable';
 
 export interface Draw {
   id: number,
+  drawStart: Date
 }
 
 export interface DrawState extends Immutable.Map<String, any[]> {
@@ -10,6 +11,6 @@ export interface DrawState extends Immutable.Map<String, any[]> {
   selectedDraw: Draw
 }
 
-export  interface StoreState {
+export interface StoreState {
   draw : DrawState
 }

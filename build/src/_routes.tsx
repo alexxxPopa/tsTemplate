@@ -1,5 +1,4 @@
 import { Draws, AddDraw } from './pages';
-
 const routes = [
   {
     path: '/draws',
@@ -11,7 +10,7 @@ const routes = [
     component: AddDraw,
     exact: true
   }
-]
+];
 
-export default routes
+export default routes;
 

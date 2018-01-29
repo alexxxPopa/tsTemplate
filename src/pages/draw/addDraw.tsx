@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Datetime from 'react-datetime';
 import * as moment from 'moment';
-import { addDraw } from '../../modules/draw'
+import { addDraw, DrawAction } from '../../modules/draw'
 import { connect } from 'react-redux';
 import { StoreState } from '../../store';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -11,7 +11,7 @@ interface State {
 }
 
 interface Props {
-  addDraw(value: number): void
+  addDraw:(value: number) => void
 }
  
 class AddDraw extends React.Component<Props, State> { 
@@ -43,8 +43,7 @@ class AddDraw extends React.Component<Props, State> {
       <form onSubmit = { event => this.onFormSubmit(event)}>
         <Datetime onChange={ param => this.onInputChange(param)}/> 
         <span>
-           <button
-            type="submit">
+          <button type="submit">
             Submit
           </button>
         </span>
@@ -60,4 +59,4 @@ const bindActionsToDispatch = (dispatch: Dispatch<StoreState>) => ({
   }
 })
 
-export default connect<State, {}, Props>(null, bindActionsToDispatch)(AddDraw)
+export default connect<State, Props, {}>(null, bindActionsToDispatch)(AddDraw)

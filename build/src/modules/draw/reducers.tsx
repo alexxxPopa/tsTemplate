@@ -4,7 +4,7 @@ import types from './types';
 import { DrawAction } from './actions';
 import { DrawState } from '../../store';
 
-const initialState: DrawState = Immutable.fromJS({
+export const initialState: DrawState = Immutable.fromJS({
   upcomingDraws: [],
   selectedDraw: null
 })
