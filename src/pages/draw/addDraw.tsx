@@ -53,10 +53,10 @@ class AddDraw extends React.Component<Props, State> {
 }
 
 
-const bindActionsToDispatch = (dispatch: Dispatch<StoreState>) => ({
+const bindActionsToDispatch = (dispatch: Dispatch<StoreState>): Props => ({
   addDraw: (value: number) => {
    bindActionCreators(addDraw, dispatch)
   }
 })
 
-export default connect<State, Props, {}>(null, bindActionsToDispatch)(AddDraw)
+export default connect<{}, Props, State, StoreState>(null, bindActionsToDispatch)(AddDraw)

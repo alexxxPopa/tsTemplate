@@ -49,7 +49,7 @@ module.exports = {
       },
     };
 
-    config.module.rules.push(tslintLoader);
+    //config.module.rules.push(tslintLoader);
     config.module.rules.push(tsLoader);
 
     return config;

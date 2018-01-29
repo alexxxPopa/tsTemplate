@@ -5,18 +5,23 @@ import { withRouter, RouteComponentProps } from 'react-router';
 import { Draw, StoreState } from '../../store/storeState';
 import { bindActionCreators, Dispatch } from 'redux';
 
-interface DispatchProps extends RouteComponentProps<any>{
+interface DispatchProps {
   getDraws: () => void,
-  selectDraw: (draw: Draw) => void,
-  draws: Array<Draw>
+  selectDraw: (draw: Draw) => void
 }
 
 interface Props  {
   draws: Array<Draw>
 }
 
+interface OwnProps extends RouteComponentProps<any> {
+  getDraws: () => void,
+  selectDraw: (draw: Draw) => void,
+  draws: Array<Draw>
+}
 
-class DrawList extends React.Component<DispatchProps> {
+
+class DrawList extends React.Component<OwnProps> {
   
   componentDidMount() {
     this.props.getDraws()
@@ -47,7 +52,7 @@ class DrawList extends React.Component<DispatchProps> {
   }
 }
 
-const mapStateToProps = (state: StoreState) => {
+const mapStateToProps = (state: StoreState, ownProps: {}): Props => {
   return { draws : state.draw.get('upcomingDraws')}
 }
 
@@ -60,5 +65,5 @@ const mapDispatchToProps = (dispatch: Dispatch<StoreState>) => ({
   }
 })
 
-export default withRouter(connect<{}, {}, {}>(mapStateToProps, mapDispatchToProps)(DrawList))
+export default withRouter(connect<Props, DispatchProps, {}, StoreState>(mapStateToProps, mapDispatchToProps)(DrawList))
 

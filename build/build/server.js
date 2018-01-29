@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "32562ee254d4b24d9456"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cc796f5607e859a36a74"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1112,8 +1112,7 @@ const getDraws = () => (dispatch) => __awaiter(this, void 0, void 0, function* (
     catch (e) {
         //handle catch
         return dispatch({
-            type: __WEBPACK_IMPORTED_MODULE_1__types__["a" /* default */].GET_DRAWS,
-            payload: {}
+            type: __WEBPACK_IMPORTED_MODULE_1__types__["a" /* default */].GET_DRAWS
         });
     }
 });
@@ -1134,8 +1133,7 @@ const addDraw = (drawStart) => (dispatch) => __awaiter(this, void 0, void 0, fun
     catch (e) {
         //handle catch
         return dispatch({
-            type: __WEBPACK_IMPORTED_MODULE_1__types__["a" /* default */].GET_DRAWS,
-            payload: {}
+            type: __WEBPACK_IMPORTED_MODULE_1__types__["a" /* default */].GET_DRAWS
         });
     }
 });
@@ -1309,7 +1307,7 @@ class DrawList extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
         return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("ul", null, this.renderDraws()));
     }
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return { draws: state.draw.get('upcomingDraws') };
 };
 const mapDispatchToProps = (dispatch) => ({

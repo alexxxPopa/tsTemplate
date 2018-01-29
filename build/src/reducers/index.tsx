@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers, Reducer } from 'redux';
 import { draw } from '../modules';
 import { StoreState } from '../store'; 
 
-const rootReducer = combineReducers<StoreState> ({
+const rootReducer: Reducer<StoreState> = combineReducers<StoreState> ({
   draw
 })
 
