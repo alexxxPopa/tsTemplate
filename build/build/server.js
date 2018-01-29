@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "cc796f5607e859a36a74"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7c5166142218494637ff"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1307,7 +1307,7 @@ class DrawList extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
         return (__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("ul", null, this.renderDraws()));
     }
 }
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return { draws: state.draw.get('upcomingDraws') };
 };
 const mapDispatchToProps = (dispatch) => ({

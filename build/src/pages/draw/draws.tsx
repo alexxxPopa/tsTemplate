@@ -52,7 +52,7 @@ class DrawList extends React.Component<OwnProps> {
   }
 }
 
-const mapStateToProps = (state: StoreState, ownProps: {}): Props => {
+const mapStateToProps = (state: StoreState): Props => {
   return { draws : state.draw.get('upcomingDraws')}
 }
 
